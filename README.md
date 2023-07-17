@@ -2,13 +2,13 @@
 * Bot discord oparty na discord.js v.14.11.0
 
 ## Info
-Celem tego projektu było nauczenie się czegoś nowego!
-Bot jest ciągle rozwijany!
-
-Dodaje on slash komendy:
-/ban - Banuje wyznaczoną osobę.
-/kick - Wyrzuca wyznaczoną osobę.
-/ping - Odpowiada "Pong!", sprawdza czy bot działa.
+Celem tego projektu było nauczenie się czegoś nowego! <br>
+Bot jest ciągle rozwijany! <br>
+<br>
+Dodaje on slash komendy: <br>
+/ban - Banuje wyznaczoną osobę. <br>
+/kick - Wyrzuca wyznaczoną osobę. <br>
+/ping - Odpowiada "Pong!", sprawdza czy bot działa. <br>
 	
 ## Technologie
 Projekt stworzony z:
