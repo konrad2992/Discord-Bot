@@ -4,7 +4,7 @@ module.exports = {
     data : new SlashCommandBuilder()
         .setName('kick')
         .setDescription("Komenda do wyrzucania.")
-        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
+        .setDefaultMemberPermissions(PermissionFlagsBits.KickMembers)
         .addUserOption(option =>
             option.setName("target")
             .setDescription("Użytkownik do wyrzucenia.")
@@ -17,21 +17,22 @@ module.exports = {
 
         const member = await interaction.guild.members.fetch(user.id);
 
-        const errEmbed = new EmbedBuilder()
-            .setDescription(`Nie możesz wykonać tej akcji na ${user.username} ponieważ on ma wyższą role.`)
-            .setColor(0xc72c3b);
-
+        const errEmbed = {
+            color: 0xCC0000,
+            title: 'Wyrzucanie',
+            description: `Nie możesz wykonać tej akcji na ${user.username} ponieważ on ma wyższą role.`,
+        };
         if (member.roles.highest.position >= interaction.member.roles.highest.position){
-            return interaction.replay({embeds: [errEmbed], ephemeral: true});
-        }
+            return interaction.reply({ embeds: [ errEmbed ], ephemeral: true})
+        };
 
         await member.kick()
-
-        const embed = new EmbedBuilder()
-            .setDescription(`Pomyślnie zbanowano użytkownika ${user}`)
-            .setColor(0x5fb041)
-            .setTimestamp()
-
-        await interaction.reply(`Pomyślnie wyrzucono użytkownika ${user}`);
+            
+        const success = {
+            color: 0x93C47D,
+            title: 'Wyrzucanie',
+            description: `Pomyślnie wyrzucono użytkownika ${user}`,
+        };
+        await interaction.reply({ embeds: [ success ] })
     }
 }
